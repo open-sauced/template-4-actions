@@ -1,8 +1,10 @@
 name: Label Test
 on:
-  issues:
-    types: [labeled]
-
+#   issues:
+#     types: [labeled]
+  release:
+    types: # This configuration does not affect the page_build event above
+      - created
 jobs:
   build:
     runs-on: ubuntu-latest
