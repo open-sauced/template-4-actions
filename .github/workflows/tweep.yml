@@ -1,0 +1,17 @@
+name: Label Test
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Dump GitHub context
+        uses: actions/github-script@v1
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |          
+            const fs = require("fs");
+            fs.writeFileSync("data.json", JSON.stringify(...context, null, 2));
